@@ -1,0 +1,31 @@
+{
+    "clients": [
+      {
+        "id": 1,
+        "name": "João da Silva",
+        "number": "011 997881321",
+        "birthDate": "1978-02-09"
+      },
+      {
+        "id": 1,
+        "name": "João da Silva",
+        "number": "011 997881321",
+        "birthDate": "1978-02-09"
+      }
+    ],
+    "requests": [
+      {
+        "id": 1,
+        "title": "02",
+        "price": 179.9,
+        "createdAt": "2020-04-25T14:20:00-03:00"
+      },
+      {
+        "id": 2,
+        "title": "03",
+        "price": 200.0,
+        "createdAt": "2020-04-25T14:20:00-03:00"
+      }
+    ]
+  }
+  
