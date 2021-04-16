@@ -1,11 +1,11 @@
 
 ### `yarn install`
 
-Instala a biblioteca para que a aplicação possa ser executada.
+Instala todas as bibliotecas necessárias para que a aplicação possa ser executada.
 
 ### `yarn server`
 
-Rodando o banco de dados fake com Server JSON.
+Roda o banco de dados fake com Server JSON.
 
 Banco de dados rodando em (http://localhost:3333).
 
