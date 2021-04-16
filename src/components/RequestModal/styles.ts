@@ -42,7 +42,7 @@ export const Container = styled.form`
         font-weight: 600;
 
         &:hover {
-        filter: highlness(0.9);
+        filter: brightness(0.9);
         }
      }
 `

@@ -1,4 +1,5 @@
 import Modal from 'react-modal';
+import closeImg from '../../assets/close.svg'
 import { Container } from './styles'
 import { FormEvent, useState } from 'react';
 import { useRequests } from '../../hooks/useRequests';
@@ -39,11 +40,13 @@ export function RequestModal({ isOpen, onRequestClose }: RequestModalProps) {
         overlayClassName="react-modal-overlay"
         className="react-modal-content"
         >
+            
             <button 
             type="button" 
             onClick={onRequestClose}
             className="react-modal-close"
             >
+                <img className="modal-close" src={closeImg} alt="Fechar Modal" />
             </button>
 
             <Container onSubmit={handleCreateNewRequest}>

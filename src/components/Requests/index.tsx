@@ -25,15 +25,14 @@ export function Requests() {
         const data = response.data.map(request => ({
           ...request,
         }))
-
+        console.log(data);
         console.log(response);
     
         setRequests(data)
-        console.log(setRequests);
 
       }
         loadProducts();
-      }, []);
+          }, []);
     return (
         <Container>
             <table>
