@@ -1,17 +1,43 @@
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
 import { Container } from "./styles";
-import { useRequests } from "../../hooks/useRequests";
+// import { useRequests } from "../../hooks/useRequests";
+
+interface Request {
+    id: number;
+    title: string;
+    price: number;
+    clients: number;
+    createdAt: string;
+}
 
 export function Requests() {
-    const {requests} = useRequests();
+    // const {requests} = useRequests();
 
+    const [requests, setRequests] = useState<Request[]>([]);
+
+
+    useEffect(() => {
+        async function loadProducts() {
+          const response = await api.get<Request[]>('requests')
+       
+    
+        const data = response.data.map(request => ({
+          ...request,
+        }))
+    
+        setRequests(data)
+      }
+        loadProducts();
+      }, []);
     return (
         <Container>
             <table>
                 <thead>
                     <tr>
-                        <th>Título</th>
-                        <th>Valor</th>
-                        <th>Categoria</th>
+                        <th>Número do Pedido</th>
+                        <th>Cliente</th>
+                        <th>Valor Total</th>
                         <th>Data</th>
                     </tr>
                 </thead>
@@ -20,17 +46,12 @@ export function Requests() {
                     {requests.map(request => (
                         <tr key={request.id}>
                             <td>{request.title}</td>
-                            <td>
-                                {/* {new Intl.NumberFormat('pt-BR', {
-                                    style: 'currency',
-                                    currency: 'BRL'
-                                }).format(request.price)} */}
-                            </td>
+                            <td>{request.clients}</td>
                             <td>
                                 {new Intl.DateTimeFormat('pt-BR').format(
                                     new Date(request.createdAt)
                                 )}
-                                </td>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
