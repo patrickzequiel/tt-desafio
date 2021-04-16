@@ -2,13 +2,15 @@
     "clients": [
       {
         "id": 1,
+        "active": true,
         "name": "João da Silva",
         "number": "011 997881321",
         "birthDate": "1978-02-09"
       },
       {
         "id": 2,
-        "name": "João da Barrto",
+        "active": false,
+        "name": "João da Barro",
         "number": "011 98986767",
         "birthDate": "1989-06-24"
       }

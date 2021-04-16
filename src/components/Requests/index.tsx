@@ -25,8 +25,12 @@ export function Requests() {
         const data = response.data.map(request => ({
           ...request,
         }))
+
+        console.log(response);
     
         setRequests(data)
+        console.log(setRequests);
+
       }
         loadProducts();
       }, []);

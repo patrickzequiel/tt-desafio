@@ -1,8 +1,16 @@
 import { useContext } from 'react'
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, ReactNode, useState } from 'react';
 import { api } from '../services/api';
 
 type RequestInput = Omit<Request, 'id' | 'createdAt'>;
+
+interface Request {
+    id: number;
+    title: string;
+    price: number;
+    clients: string;
+    createdAt: string;
+}
 
 interface RequestProviderProps {
     children: ReactNode;
@@ -19,27 +27,6 @@ const RequestContext = createContext<RequestContextData>(
 
 export function RequestsProvider({ children }: RequestProviderProps) {
     const [requests, setRequests] = useState<Request[]>([]);
-
-
-    useEffect(() => {
-        async function loadProducts() {
-          const response = await api.get<Request[]>('products')
-       
-    
-        const data = response.data.map(request => ({
-          ...request,
-        //   priceFormatted: formatPrice(product.price)
-        }))
-    
-        setRequests(data)
-      }
-        loadProducts();
-      }, []);
-
-    // useEffect(() => {
-    //     api.get('requests')
-    //         .then(response => setRequests(response.data.requests))
-    // }, []);
 
     async function createRequest(RequestInput: RequestInput){
         const response = await api.post('/requests', {
